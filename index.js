@@ -9,7 +9,15 @@ server.use(bodyParser.json());
 
 
 //end points
+server.get('/', (req, res) => {
 
+    console.log('request params: '+ req.params.data);
+    const dataToSend = `welkom op de pagina!`;
+    return res.json({
+        speech: dataToSend,
+        source: 'root'
+    });
+});
 server.post('/get-test-data/:data', (req, res) => {
     const dataFromRequest = req.params.data;
     console.log('request params: '+ req.params.data);
